@@ -23,3 +23,14 @@ def legnthNum(cm):
 lv = float(input('길이입력(cm): '))
 returnValue = legnthNum(lv)
 print(f'rv: {returnValue:.2f}mm')
+
+# 1부터 100까지 정수 홀수인 난수만
+import random 
+def getRandomNum():
+  while True:
+    rNum = random.randint(1, 100)
+    if rNum % 2 != 0:
+      break
+    
+    return rNum
+print(f'rv: {getRandomNum()}')
