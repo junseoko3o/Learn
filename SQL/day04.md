@@ -23,6 +23,7 @@ WHERE 조건
   - 데이터 값이 존재 하지 않음, 0이나 공백이 아닌 알 수 없는 값
 
 ## expample
+```SQL
 DROP DATABASE IF EXISTS pokemon;
 CREATE DATABASE pokemon;
 USE pokemon;
@@ -165,7 +166,7 @@ MISSION (14)
 SELECT name, attack + defense + speed AS total
 FROM mypokemon
 WHERE attack + defense + speed >= 150;
-
+```
 
 
 
