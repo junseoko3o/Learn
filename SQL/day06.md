@@ -20,3 +20,19 @@ GROUP BY type;
 -- type이 같은 값끼리 그룹으로 묶임
 ```
 
+# HAVING
+- 가져올 데이터 그룹에 조건을 걸어줌
+- HAVING 조건식
+- 조건식이 True만 그룹만 선택
+- HAVING절의 조건식에는 그룹함수사용
+
+```SQL
+SELECT column, 그룹함수
+FROM table_name
+WHERE 조건
+GROUP BY column
+HAVING 조건
+```
+
+# 
+
