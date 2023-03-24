@@ -102,3 +102,18 @@ FROM pocketmon.mypocketmon
 GROUP BY type;
 -- 전체 컬럼가져와서 세는거 COUNT(*)
 ```
+
+## 쿼리 순서
+- 작성 순서
+  - SELECT -> FROM -> WHERE -> GROUP BY -> HAVING -> ORDER BY 
+- 실행 순서
+  - FROM -> WHERE -> GROUP BY -> HAVING -> SELECT -> ORDER BY
+  
+```SQL
+SELECT type, COUNT(1), MAX(weight)
+FROM pocketmon.mypocketmon
+WHERE name LIKE '%a%'
+GROUP BY type
+HAVING MAX(height > 1)
+ORDER BY 3;
+```
