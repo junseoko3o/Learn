@@ -34,5 +34,71 @@ GROUP BY column
 HAVING 조건
 ```
 
-# 
+# 그룹함수
+- COUNT
+  - 그룹의 값 수를 세는 함수
+  - COUNT(컬럼) // SELECT, HAVING 절에 사용
+    - 집계할 컬럼 이름은 그룹의 기준이 되는 컬럼 이름과 같아도 같지 않아도 괜찮
+    - COUNT(1)은 하나의 값을 1로 세어주는 표현으로 COUNT함수에서 자주사용
+  - GROUP BY가 없는 쿼리에서도 사용 가능하며 이떄는 전체 로우에 함수가 적용
+  ```SQL
+  SELECT column,COUNT(column)
+  FROM table_name
+  GROUP BY column
+  HAVING 조건
+  ```
 
+- SUM
+  - 그룹의 함 계산
+  - SUM(column), // SELECT, HAVING절에 사용
+    - 집계할 컬럼이름 상관없음
+  - GROUP BY가 없는 쿼리에서도 사용가능 이떄 전체 로우 함수 적용
+  ```SQL
+  SELECT column,SUM(column)
+  FROM table_name
+  GROUP BY column
+  HAVING 조건
+  ```
+
+- AVG 
+  - 그룹의 평균 계산
+  - AVG(column) // SELECT, HAVING절 사용
+    - 컬럼이름 상관 없음
+  - GROUP BY가 없는 쿼리에서도 사용가능 이떄 전체 로우 함수 적용
+  ```SQL
+  SELECT column,AVG(column)
+  FROM table_name
+  GROUP BY column
+  HAVING 조건
+  ```
+- MIN 
+  - 그룹의 최소값 반환
+  - MIN(column) // SELECT, HAVING절 사용
+    - 컬럼이름 상관 없음
+  - GROUP BY가 없는 쿼리에서도 사용가능 이떄 전체 로우 함수 적용
+  ```SQL
+  SELECT column,MIN(column)
+  FROM table_name
+  GROUP BY column
+  HAVING 조건
+  ```
+
+- MAX 
+  - 그룹의 최소값 반환
+  - MAX(column) // SELECT, HAVING절 사용
+    - 컬럼이름 상관 없음
+  - GROUP BY가 없는 쿼리에서도 사용가능 이떄 전체 로우 함수 적용
+  ```SQL
+  SELECT column,MAX(column)
+  FROM table_name
+  GROUP BY column
+  HAVING 조건
+  ```
+
+## example
+```SQL
+SELECT type, COUNT(*), COUNT(1), AVG(height), MAX(weight)
+FROM pocketmon.mypocketmon
+GROUP BY type;
+-- 전체 컬럼가져와서 세는거 COUNT(*)
+```
