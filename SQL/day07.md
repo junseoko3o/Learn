@@ -62,3 +62,49 @@ CASE
 END AS rival_type
 FROM pockemon.mypocketmon;
 ```
+
+# 함수 만들기
+
+```SQL
+CREATE FUNCTION 함수이름(입력값, 데이터타입)
+  RETURNS 결과값 데이터타입
+BEGIN 
+  DECLARE 입시값 이름 데이터 타입;
+  SET 임시값 이름 = 입력값 이름;
+  쿼리;
+  RETURN 결과값
+END
+
+-- 함수 지우기
+-- DROP FUNCTION 함수이름
+```
+
+## example
+
+```SQL
+CREATE FUNCTION getAbility(attck INT, defense INT)
+  RETURNS INT
+BEGIN 
+  DECLARE a INT;
+  DECLARE b INT;
+  DECLARE ablility INT;
+  SET a = attack;
+  SET b = defense;
+  SELECT a + b INTO ability;
+  RETURN ability;
+END
+```
+
+- 함수 생성할 때 주의할 점
+```SQL
+SET GLOBAL log_bin_trust_function_creators = 1; -- 사용자 계정에 function create 권한 생성
+DELIMITER // -- 함수시작
+
+
+//
+DELIMITER -- 함수 끝
+```
+
+
+
+
