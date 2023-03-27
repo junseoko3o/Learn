@@ -80,3 +80,37 @@ RIGHT JOIN ability
 ON mypocketmon.number = ability.number;
 ```
 
+- CROSS JOIN
+  - 두 테이블에 있는 모든값을 가져옴 (각각 합쳐서)
+
+```SQL
+SELECT column
+FROM table
+CROSS JOIN tableB
+WHERE 조건;
+-- ON키워드 없어도됨
+```
+
+```SQL
+SELECT *
+FROM mypocketmon
+CROSS JOIN ability;
+```
+
+- SELF JOIN
+  - 같은 테이블에 있는 값 합치기 
+  - 별칭 필요 (같은 테이블이라 구분하기가 어려움)
+```SQL
+SELECT column
+FROM table AS t1
+INNER JOIN table AS t2
+ON t1.column = t2.columnB
+WHERE 조건;
+```
+
+```SQL
+SELECT *
+FROM mypocketmon AS t1
+INNER JOIN mypoecktmon AS t2
+ON t1.number = t2.number;
+```
