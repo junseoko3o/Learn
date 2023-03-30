@@ -100,3 +100,29 @@ GRANT ALL PRIVILEGES ON mydb.mytb TO newuser@%;
 -- newuser한테 모든 데이터베이스 테이블에 대한 SELECT INSERT권한
 GRANT SELECT,INSERT ON *.* TO newuser@%;
 ```
+
+# TRANSACTION
+- 데이터베이스의 상태를 바꾸는 작업 묶음 
+- 트랜잭션 시작 -> 쿼리 실행 -> 트랜잭션 확정 및 트랜잭션 이전으로 돌아가기
+
+```SQL
+-- 트랜잭션 시작
+START TRANSACTION;
+
+-- 확정
+COMMIT;
+
+-- 돌아가기
+ROLLBACK;
+```
+
+# SAVEPOINT
+- 트랜잭션 내 특정한 저장 지점
+
+```SQL
+-- 만들기
+SAVEPOINT 이름;
+
+-- 세이브 포인트로 돌아가기
+ROLLBACK TO 이름;
+```
