@@ -26,3 +26,23 @@ FROM mypocketmon
 WHERE name='pikachu';
 ```
 
+# FROM
+- 인라인 뷰 서브쿼리
+- FROM절의 서브쿼리는 반드시 결과값이 하나의 테이블
+- 서브쿼리로 마든 테이블은 반드시 별칭 필요
+
+```SQL
+SELECT column
+FROM (SELECT column
+      FROM table
+      WHERE 조건) AS 별칭
+WHERE 조건;
+```
+
+```SQL
+SELECT number, height_rank
+FROM (SELECT number, rank() OVER(ORDER BY height DESC) AS height_rank FROM ability) AS A
+WHERE height_rank=3;
+```
+
+# WHERE
