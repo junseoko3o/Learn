@@ -169,3 +169,19 @@ http {
     ```
     
     - 만약에 listen 지시어를 사용하지 않으면 default 값인 80 port로 설정된다.
+
+## docker compose
+- docker host mode로 nginx 실행
+```bash
+version: "3.9"
+services:
+  proxy:
+    container_name: nginx
+    image: nginx:stable-alpine
+    volumes:
+      - "./conf.d:/etc/nginx/conf.d"
+      - "./logs:/var/log/nginx/"
+      - "./cache:/var/cache/nginx"
+      - "./nginx.conf:/etc/nginx/nginx.conf"
+    network_mode: host
+```
